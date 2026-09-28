@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS task(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT ,
+    is_completed BOOLEAN NOT NULL DEFAULT 0
+)
