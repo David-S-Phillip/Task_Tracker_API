@@ -1,5 +1,9 @@
 package za.co.gabos.task;
 
+/**
+ * This class describes a task that need to be done.s
+ * e.g 1, Workout, need to go run for 5 km, not complete
+ */
 public class Task {
 
     private Integer id; //id needs to default to 0, so that when i add it to the database it just adds a id number.
