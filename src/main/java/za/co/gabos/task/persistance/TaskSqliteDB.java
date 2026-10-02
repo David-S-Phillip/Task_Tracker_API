@@ -76,6 +76,17 @@ public class TaskSqliteDB implements TaskDB {
         return null;
     }
 
+    // this method resets and deletes the task table, this is for testing
+    public void clearDatabase() {
+        String sql = "DROP TABLE IF EXISTS tasks";
+        try (Connection conn = DriverManager.getConnection(dbUrl);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to clear database", e);
+        }
+    }
+
     @Override
     public Task addTask(Task task) {
         String sql = "INSERT INTO tasks (title, description, is_completed) VALUES (?, ?, ?)";
@@ -100,4 +111,5 @@ public class TaskSqliteDB implements TaskDB {
         }
         return task;
     }
+
 }
