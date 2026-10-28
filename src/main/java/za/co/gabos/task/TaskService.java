@@ -22,6 +22,15 @@ public class TaskService {
         if (task.getTitle() == null || task.getTitle().isBlank()) {
             throw new IllegalArgumentException("Title cannot be empty");
         }
+
+        if (!task.getTitle().matches("^[a-zA-Z0-9 ]+$")){
+            throw new IllegalArgumentException("Title contains illegal special characters");
+        }
         return taskDAO.addTask(task);
     }
+
+    public Task getTaskById(int taskId) {
+        return taskDAO.getTaskById(taskId);
+    }
+
 }
