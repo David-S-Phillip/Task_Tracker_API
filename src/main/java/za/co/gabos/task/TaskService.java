@@ -1,15 +1,16 @@
 package za.co.gabos.task;
 
 import za.co.gabos.task.Task;
+import za.co.gabos.task.persistance.TaskDB;
 import za.co.gabos.task.persistance.TaskSqliteDB;
 import java.util.List;
 
 public class TaskService {
     // 1. Declare as the INTERFACE, not the concrete SQLite class
-    private final TaskSqliteDB taskDAO;
+    private final TaskDB taskDAO;
 
     // 2. Inject via constructor
-    public TaskService(TaskSqliteDB taskDAO) {
+    public TaskService(TaskDB taskDAO) {
         this.taskDAO = taskDAO;
     }
 

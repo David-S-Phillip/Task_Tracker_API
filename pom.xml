@@ -23,20 +23,16 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Source: https://mvnrepository.com/artifact/io.javalin/javalin -->
         <dependency>
             <groupId>io.javalin</groupId>
             <artifactId>javalin</artifactId>
-            <version>7.2.3</version>
-            <scope>compile</scope>
+            <version>6.1.3</version>
         </dependency>
 
-        <!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
         <dependency>
-            <groupId>tools.jackson.core</groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>3.2.3</version>
-            <scope>compile</scope>
+            <version>2.17.0</version>
         </dependency>
 
         <!-- Source: https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
@@ -45,6 +41,13 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.53.4.0</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- SLF4J Simple Logger (Fixes the SLF4J warning you saw earlier) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.12</version>
         </dependency>
     </dependencies>
 

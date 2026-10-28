@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskSqliteDBTest {
 
-    //Using Sqlite in memory database URL for testing
-    private static final String TEST_DB_URL = "jdbc:sqlite:file:test.db"; //this just means dont make a hardcopy of the database it will live in the ram
-    private TaskSqliteDB db;
+    //had problems using a db in the ram so i am creating a actual .db file to test
+    private static final String TEST_DB_URL = "jdbc:sqlite:file:test_db";
+    private TaskDB db;
 
     @BeforeEach
     void setUp(){

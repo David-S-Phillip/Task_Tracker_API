@@ -77,6 +77,7 @@ public class TaskSqliteDB implements TaskDB {
     }
 
     // this method resets and deletes the task table, this is for testing
+    @Override
     public void clearDatabase() {
         String sql = "DROP TABLE IF EXISTS tasks";
         try (Connection conn = DriverManager.getConnection(dbUrl);
@@ -91,6 +92,7 @@ public class TaskSqliteDB implements TaskDB {
     public Task addTask(Task task) {
         String sql = "INSERT INTO tasks (title, description, is_completed) VALUES (?, ?, ?)";
 
+        // 1. MUST pass Statement.RETURN_GENERATED_KEYS here
         try (Connection conn = DriverManager.getConnection(dbUrl);
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -98,17 +100,21 @@ public class TaskSqliteDB implements TaskDB {
             stmt.setString(2, task.getDescription());
             stmt.setBoolean(3, task.isCompleted());
 
-            stmt.executeUpdate();
+            int affectedRows = stmt.executeUpdate();
 
-            // Retrieve auto-generated SQLite primary key
-            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    task.setId(generatedKeys.getInt(1));
+            // 2. Extract keys if the row insert succeeded
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        // Set the generated ID back onto the task object!
+                        task.setId(generatedKeys.getInt(1));
+                    }
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return task;
     }
 
