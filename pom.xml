@@ -85,7 +85,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>za.co.gabos.task.api.TaskServer</mainClass>
+                                    <mainClass>za.co.gabos.task.App</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

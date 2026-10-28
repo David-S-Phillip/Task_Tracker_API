@@ -17,6 +17,8 @@ This project serves as a hands-on exercise to demonstrate:
 - **JSON Parser:** Jackson (`jackson-databind`)
 - **Database:** SQLite (`sqlite-jdbc`)
 - **Build Tool:** Maven
+- **HTML** index.html
+- **java script** what we use to create a GET request to send to the server.
 
 ## API Endpoints
 | HTTP Method | Endpoint | Description |
@@ -24,3 +26,6 @@ This project serves as a hands-on exercise to demonstrate:
 | `GET` | `/tasks` | Retrieves a list of all tasks from the SQLite database |
 | `GET` | `/task/{id}` | Retrieves a single task by its unique ID |
 | `POST` | `/tasks` | Accepts a JSON payload and creates a new task in SQLite |
+
+## Docker 
+Refer to Docker-for-life.md to view how to create and run a docker container.
