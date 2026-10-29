@@ -19,7 +19,6 @@ public class App {
         if (db.getAllTasks().isEmpty()) {
             db.addTask(new Task("Test Javalin", "Verify JSON output from GET request"));
         }
-        db.addTask(new Task("bruv", "no_bruv"));
 
         TaskService taskService = new TaskService(db);
 

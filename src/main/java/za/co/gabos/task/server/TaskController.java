@@ -27,11 +27,15 @@ public class TaskController {
         }
     }
 
-    public void createTask(Context ctx){
-        Task incomingTask = ctx.bodyAsClass(Task.class);
+    public void createTask(Context ctx) {
+        try {
+            Task incomingTask = ctx.bodyAsClass(Task.class);
 
-        Task createdTask = taskService.createNewTask(incomingTask);
+            Task createdTask = taskService.createNewTask(incomingTask);
 
-        ctx.status(201).json(createdTask);
+            ctx.status(201).json(createdTask);
+        } catch (IllegalArgumentException e){
+            ctx.status(400).result("Validation Error: " + e.getMessage());
+        }
     }
 }
