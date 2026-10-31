@@ -11,8 +11,7 @@ public class TaskService {
 
     // 2. Inject via constructor
     public TaskService(TaskDB taskDAO) {
-        this.taskDAO = taskDAO;
-    }
+        this.taskDAO = taskDAO;    }
 
     public List<Task> fetchAllTasks() {
         return taskDAO.getAllTasks();
