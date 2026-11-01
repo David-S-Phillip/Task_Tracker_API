@@ -25,9 +25,8 @@ public class App {
         TaskController controller = new TaskController(taskService);
 
         Javalin app = Javalin.create(config -> {
-            config.bundledPlugins.enableCors(cors -> {
-                cors.addRule(it -> it.anyHost());
-            });
+            //Tell javalin to serve static file css and js folders
+            config.staticFiles.add("/html");
         }).start(7070);
 //        Javalin app = Javalin.create().start(7070);
 
